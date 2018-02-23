@@ -15,12 +15,18 @@
 	$pass = $_POST["pass"];
 	$email = $_POST["email"];
 	$sqli = "INSERT INTO customer (username, emailid, password) VALUES ('$user','$email','$pass')";
-		if ($conn->query($sqli) === TRUE) {
-    			header("Location:afterlogin.php?user=".$_POST["user"]);
-    		}
-    		else {
-    		echo "Error: " . $sql . "<br>" . $conn->error;
-		} 
+	if ($conn->query($sqli) === TRUE) {
+		$sql_create = "CREATE TABLE `cloudportalDB`.`$user` ( `filename` VARCHAR(32) NOT NULL , `filesize` INT NOT NULL , PRIMARY KEY (`filename`)) ENGINE = InnoDB";
+		if($conn->query($sql_create) == TRUE) {
+		echo "User table created";
+		}
+    			header("Location:upload.html?user=".$_POST["user"]);
+    	}
+    	else {
+		echo "<script type=\"text/javascript\">window.alert('Usernanme already taken. Please try another one!');window.location.href = 'signup.html';</script>"; 
+   		exit;
+ //   		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
 	$conn->close();
 	
 ?>

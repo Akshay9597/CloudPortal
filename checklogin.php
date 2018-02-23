@@ -19,7 +19,7 @@
 				$flag = 1;
 				if($row["password"] == $pass) {
 					echo "login successful";
-					header("Location:afterlogin.php?user=".$_POST["user"]);
+					header("Location:upload.html?user=".$_POST["user"]);
 				}
 				else {
 					echo "<script type=\"text/javascript\">window.alert('Invalid Password!!');window.location.href = 'index.html';</script>"; 
