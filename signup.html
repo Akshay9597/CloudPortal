@@ -5,24 +5,25 @@
 
   <meta charset="UTF-8">
 
-  <title>Cloud-Portal-Log-in</title>
+  <title>Cloud-Portal-sign-in</title>
   <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 
 </head>
 
 <body>
-<h1 align = 'center'>CLOUD PORTAL</h1>
+<h1 align = 'center'>CLOUD PORTAL SIGN UP</h1>
 
 <div class="login-card">
-  <h1>Log-in</h1><br>
-  <form action = "checklogin.php" method = "POST">
+  <h1>Sign-Up</h1><br>
+  <form action = "signup.php" method = "POST">
     <input type="text" name="user" placeholder="Username" required>
+    <input type="text" name="email" required>
     <input type="password" name="pass" placeholder="Password" required>
-    <input type="submit" name="login" class="login login-submit" value="login">
+    <input type="submit" name="login" class="login login-submit" value="signup">
   </form>
 
   <div class="login-help">
-    <a href="signup.html">Register</a>
+    <a href="index.html">login instead?</a>
   </div>
 </div>
 

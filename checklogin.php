@@ -1,7 +1,5 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "root";
+	include '../passdb.php';
 	$dbname = "cloudportalDB";
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -21,21 +19,20 @@
 				$flag = 1;
 				if($row["password"] == $pass) {
 					echo "login successful";
-				//	header("Location:afterlogin.php?user=".$_POST["user"]);
+					header("Location:afterlogin.php?user=".$_POST["user"]);
 				}
 				else {
-					echo "<script type=\"text/javascript\">window.alert('Invalid Password!!');window.location.href = 'login.php';</script>"; 
+					echo "<script type=\"text/javascript\">window.alert('Invalid Password!!');window.location.href = 'index.html';</script>"; 
    					exit;
     				}
     			}
     		}
     		if($flag == 0) {
-    			echo "<script type=\"text/javascript\">window.alert('New User? SignUp for free!!');window.location.href = 'login.php';</script>"; 
+    			echo "<script type=\"text/javascript\">window.alert('New User? SignUp for free!!');window.location.href = 'index.html';</script>"; 
    			exit;
    		}
 	} else {
-
-		echo "<script type=\"text/javascript\">window.alert('New User? SignUp for freeeeee!!');window.location.href = 'login.php';</script>"; 
+		echo "<script type=\"text/javascript\">window.alert('New User? SignUp for freeeeee!!');window.location.href = 'index.html';</script>"; 
    		exit;
    	}
 		
