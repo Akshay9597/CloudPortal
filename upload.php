@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['user'])){
+	   header("Location:login.html");
+}
 $user = $_POST["user"];
 echo $user;
 $target_dir = "uploads/";
