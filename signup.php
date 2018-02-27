@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	$_SESSION["user"] = $_POST["user"];
+
 	include '../passdb.php';
 	$conn = new mysqli($servername, $username, $password);
 	if ($conn->connect_error) {
@@ -18,9 +21,9 @@
 	if ($conn->query($sqli) === TRUE) {
 		$sql_create = "CREATE TABLE `cloudportalDB`.`$user` ( `filename` VARCHAR(32) NOT NULL , `filesize` INT NOT NULL , PRIMARY KEY (`filename`)) ENGINE = InnoDB";
 		if($conn->query($sql_create) == TRUE) {
-		echo "User table created";
+	//	echo "User table created";
 		}
-    			header("Location:upload.html?user=".$_POST["user"]);
+    			header("Location:uploadform.php");
     	}
     	else {
 		echo "<script type=\"text/javascript\">window.alert('Usernanme already taken. Please try another one!');window.location.href = 'signup.html';</script>"; 

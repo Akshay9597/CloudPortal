@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	$_SESSION["user"] = $_POST["user"];
+
 	include '../passdb.php';
 	$dbname = "cloudportalDB";
 	
@@ -19,7 +22,7 @@
 				$flag = 1;
 				if($row["password"] == $pass) {
 					echo "login successful";
-					header("Location:upload.html?user=".$_POST["user"]);
+					header("Location:uploadform.php");
 				}
 				else {
 					echo "<script type=\"text/javascript\">window.alert('Invalid Password!!');window.location.href = 'index.html';</script>"; 
