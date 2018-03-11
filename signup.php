@@ -19,7 +19,7 @@
 	$email = $_POST["email"];
 	$sqli = "INSERT INTO customer (username, emailid, password) VALUES ('$user','$email','$pass')";
 	if ($conn->query($sqli) === TRUE) {
-		$sql_create = "CREATE TABLE `cloudportalDB`.`$user` ( `filename` VARCHAR(32) NOT NULL , `filesize` INT NOT NULL , PRIMARY KEY (`filename`)) ENGINE = InnoDB";
+		$sql_create = "CREATE TABLE `cloudportalDB`.`$user` ( `filename` VARCHAR(128) NOT NULL , `filesize` INT NOT NULL , PRIMARY KEY (`filename`)) ENGINE = InnoDB";
 		if($conn->query($sql_create) == TRUE) {
 	//	echo "User table created";
 		}
