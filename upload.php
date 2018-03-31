@@ -35,6 +35,21 @@
 		echo "invalid query";
 	}
 	$conn->close();
+
+//	writing to a file so it will be sent first to the node to know the contents.
+	
+
+	$filename= "filename.txt";
+
+	// programatically set permissions
+	if(!file_exists($filename)){
+	    touch($filename);
+	    chmod($filename, 0777);
+	}
+	$data = $user."\t".$target_file."\n";
+	$newFile= fopen($filename, 'a') or die('error while opening');
+	fwrite($newFile, $data);
+	fclose($newFile);
 /***********************************************************************************************/
 	//Transfer file from server to server
 
