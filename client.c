@@ -10,7 +10,7 @@
 
 
 #define SOCKET_PORT "50000"
-#define SOCKET_ADR "localhost"
+#define SOCKET_ADR "192.168.1.6"
 #define filename "/home/akshay/Desktop/input.txt"
 
 

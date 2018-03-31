@@ -1,5 +1,4 @@
 <?php
-	$server1 = '10.100.101.116';
 	session_start();
 	if(!isset($_SESSION['user'])){
 		   header("Location:/cloudfiles/index.html");
@@ -36,33 +35,11 @@
 		echo "invalid query";
 	}
 	$conn->close();
-
+/***********************************************************************************************/
 	//Transfer file from server to server
-	set_time_limit(0); //Unlimited max execution time
-	 
-//	$path = 'newfile.zip';
-//	$url = 'http://example.com/oldfile.zip';
-	$url = $server1 . '/akshay.' . $target_file;
+
+
 	
-	echo 'Starting Download!<br>';
-	$file = fopen ($target_file, "rb");
-	if($file) {
-		$newf = fopen ($url, "wb");
-		if($newf)
-			while(!feof($file)) {
-				fwrite($newf, fread($file, 1024 * 8 ), 1024 * 8 );
-				echo '1 MB File Chunk Written!<br>';
-			}
-	}
-	if($file) {
-		fclose($file);
-	}
-	if($newf) {
-		fclose($newf);
-	}
-	echo 'Finished!';
-
-
 	//Redirecting
 	header("Location:uploadform.php");
 ?>

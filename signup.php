@@ -2,7 +2,7 @@
 	session_start();
 	$_SESSION["user"] = $_POST["user"];
 
-	include '../passdb.php';
+	include './passdb.php';
 	$conn = new mysqli($servername, $username, $password);
 	if ($conn->connect_error) {
 	 	die("Connection failed: " . $conn->connect_error);

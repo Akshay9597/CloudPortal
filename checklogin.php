@@ -2,7 +2,7 @@
 	session_start();
 	$_SESSION["user"] = $_POST["user"];
 
-	include '../passdb.php';
+	include './passdb.php';
 	$dbname = "cloudportalDB";
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
