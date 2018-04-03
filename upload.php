@@ -52,7 +52,7 @@
 	fclose($newFile);
 /***********************************************************************************************/
 	//Transfer file from server to server
-
+	system("./bashtest.sh");
 
 	
 	//Redirecting
