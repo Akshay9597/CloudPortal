@@ -8,7 +8,7 @@
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 	$tmp_name = $_FILES["fileToUpload"]["tmp_name"];
 	move_uploaded_file($tmp_name, "$target_file");
-
+	$_SESSION['filename'] = basename($_FILES["fileToUpload"]["name"]);
 	//Connecting database
 	include '../passdb.php';
 	$dbname = "cloudportalDB";
@@ -52,10 +52,10 @@
 	fclose($newFile);
 /***********************************************************************************************/
 	//Transfer file from server to server
-	system("./bashtest.sh");
 
 	
+/*************************************************************************************************/
 	//Redirecting
-	header("Location:uploadform.php");
+	header("Location:scpconnect.php");
 ?>
 
