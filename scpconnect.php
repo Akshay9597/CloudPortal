@@ -23,14 +23,14 @@ $user = $_SESSION["user"];
 $filename = $_SESSION["filename"];
 echo $filename;
 echo "*********";
-$connection = ssh2_connect($hostname, 22);
+$connection = ssh2_connect($nodes[$i][0], 22);
 if($connection == TRUE) {
 	echo "connection established <br>";
 } else {
 	echo "connedtion can't be established <br>";
 }
-ssh2_auth_password($connection, $username, $password);
-$target_dir = './'.$user.'/';
+ssh2_auth_password($connection, $nodes[$i][1], $nodes[$i][2]);
+$target_dir = '/home/akshay/Desktop/'.$user.'/';
 echo $target_dir;
 echo '*************';
 

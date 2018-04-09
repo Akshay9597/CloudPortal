@@ -56,6 +56,6 @@
 	
 /*************************************************************************************************/
 	//Redirecting
-	header("Location:scpconnect.php");
+	header("Location:scpconnectnew.php");
 ?>
 
