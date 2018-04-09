@@ -22,6 +22,9 @@
     <input type="submit" value="Upload Image" name="submit">
 </form>
 
+
+<input type="button" onclick="window.location='showfiles.php'" class="register" value="Show my files"/>
+<br>
 <a href="logout.php">Logout</a>
 </body>
 </html>
