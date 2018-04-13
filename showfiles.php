@@ -104,12 +104,13 @@ $bool = 1;
         }
   while ($row = mysqli_fetch_array($display_query))
             {
+	$downloadfile = $row['filename'];
 		?>
         <tr>
         <td style="padding:0 25px 0 25px;"><?php echo $row['filename'] ?></td>
         <td style="padding:0 25px 0 25px;"><?php echo $row['filesize'] ?></td>
-	<td style="padding:0 25px 0 25px;"><a href="download.php">Download</a></td>
-	<td style="padding:0 25px 0 25px;"><a href="delete.php">Delete</a></td>
+	<td style="padding:0 25px 0 25px;"><a href="./uploads/<?php echo $row['filename']; ?>" download>Download</a></td>
+	<td style="padding:0 25px 0 25px;"><a href="delete.php?del=<?php echo $downloadfile; ?>">Delete</a></td>
         </tr>
 <?php
             }
@@ -117,6 +118,7 @@ $bool = 1;
         </tbody>
       </div>
        </table>
+
    <!-- jQuery -->
     <script src="../WebApp/js/jquery-1.11.3.min.js"></script>
 

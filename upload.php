@@ -6,9 +6,14 @@
 	echo $_SESSION['user'];
 	$onlyfilename = $_FILES["fileToUpload"]["name"];
 	$target_dir = "./";
+	$target_dirextra = "./uploads/";
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+	$target_fileextra = $target_dirextra . basename($_FILES["fileToUpload"]["name"]);
 	$tmp_name = $_FILES["fileToUpload"]["tmp_name"];
-	move_uploaded_file($tmp_name, "$target_file");
+
+	copy($tmp_name, "$target_file");
+	move_uploaded_file($tmp_name, "$target_fileextra");
+
 	$_SESSION['filename'] = basename($_FILES["fileToUpload"]["name"]);
 	//Connecting database
 	include_once '../passdb.php';

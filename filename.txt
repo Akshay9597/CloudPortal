@@ -1,3 +1,12 @@
 akshay#read.c
 akshay#
 apte#read.c
+apte#huff.c
+apte#input.txt
+chirag#Screenshot from 2017-09-28 19-35-58.png
+chirag#Screenshot from 2017-09-28 19-36-04.png
+chirag#Screenshot from 2018-01-29 12-01-08.png
+chirag#Screenshot from 2017-10-26 20-38-41.png
+chirag#Screenshot from 2017-10-26 21-15-07.png
+apte#Screenshot from 2017-03-30 21-59-35.png
+apte#Screenshot from 2018-01-27 20-30-10.png
