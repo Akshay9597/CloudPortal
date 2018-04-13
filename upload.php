@@ -4,13 +4,14 @@
 		   header("Location:/cloudfiles/index.html");
 	}
 	echo $_SESSION['user'];
-	$target_dir = "uploads/";
+	$onlyfilename = $_FILES["fileToUpload"]["name"];
+	$target_dir = "./";
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 	$tmp_name = $_FILES["fileToUpload"]["tmp_name"];
 	move_uploaded_file($tmp_name, "$target_file");
 	$_SESSION['filename'] = basename($_FILES["fileToUpload"]["name"]);
 	//Connecting database
-	include '../passdb.php';
+	include_once '../passdb.php';
 	$dbname = "cloudportalDB";
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -26,7 +27,7 @@
 	//$sqlinsert = "INSERT INTO '" . $user . "' (`filename`, `filesize`) VALUES ('$target_file', '$filesize')";
 
 	
-	$sqlinsert = "INSERT INTO ".$user." (filename, filesize) VALUES ('".$target_file."', '".$filesize."')";
+	$sqlinsert = "INSERT INTO ".$user." (filename, filesize) VALUES ('".$onlyfilename."', '".$filesize."')";
 //	mysqli_query($conn,$sqlinsert);//for execute
 	if($conn->query($sqlinsert) === TRUE) {
 		echo "successful entry of files";
@@ -46,7 +47,7 @@
 	    touch($filename);
 	    chmod($filename, 0777);
 	}
-	$data = $user."\t".$target_file."\n";
+	$data = $user."#".$onlyfilename."\n";
 	$newFile= fopen($filename, 'a') or die('error while opening');
 	fwrite($newFile, $data);
 	fclose($newFile);
@@ -56,6 +57,6 @@
 	
 /*************************************************************************************************/
 	//Redirecting
-	header("Location:scpconnectnew.php");
+	header("Location:uploadform.php");
 ?>
 

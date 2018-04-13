@@ -14,6 +14,8 @@ $password = "tomnjerry123";
 
 /************some hash function to calculate i *****************/
 $i = 0;
+
+/**********************************/
 echo $nodes[0][0];
 echo $nodes[0][1];
 echo $nodes[0][2];
@@ -30,7 +32,7 @@ if($connection == TRUE) {
 	echo "connedtion can't be established <br>";
 }
 ssh2_auth_password($connection, $nodes[$i][1], $nodes[$i][2]);
-$target_dir = '/home/akshay/Desktop/'.$user.'/';
+$target_dir = '/var/www/html/cloudfiles/'.$user.'/';
 echo $target_dir;
 echo '*************';
 

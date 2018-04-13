@@ -34,11 +34,15 @@ if($sftp == TRUE) {
 } else {
 	echo "sftp connedtion can't be established <br>";
 }
-ssh2_auth_password($connection, $nodes[$i][1], $nodes[$i][2]);
-
+$auth = ssh2_auth_password($connection, $nodes[$i][1], $nodes[$i][2]);
+if($auth == TRUE) {
+	echo "auth established <br>";
+} else {
+	echo "auth connedtion can't be established <br>";
+}
 
 //$target_dir = '/var/www/html/testnew/'.$user.'/';
-$target_dir = './'.$user.'/';
+$target_dir = '/home/akshay/Desktop/'.$user.'/';
 echo $target_dir;
 echo '*************';
 /*
