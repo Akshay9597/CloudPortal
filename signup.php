@@ -14,12 +14,15 @@
 	} else {
 		echo "Error creating database: " . $conn->error;
 	}
+
 	$user = $_POST["user"];
 	$pass = $_POST["pass"];
 	$email = $_POST["email"];
-	$sqli = "INSERT INTO customer (username, emailid, password) VALUES ('$user','$email','$pass')";
+	$fullname = $_POST["fullname"];
+
+	$sqli = "INSERT INTO customer (username, fullname, emailid, password) VALUES ('$user','$fullname','$email','$pass')";
 	if ($conn->query($sqli) === TRUE) {
-		$sql_create = "CREATE TABLE `cloudportalDB`.`$user` ( `filename` VARCHAR(128) NOT NULL , `filesize` INT NOT NULL , PRIMARY KEY (`filename`)) ENGINE = InnoDB";
+		$sql_create = "CREATE TABLE `cloudportalDB`.`$user` ( `filename` VARCHAR(128) NOT NULL , `filesize` INT NOT NULL, `title` VARCHAR(128), PRIMARY KEY (`filename`)) ENGINE = InnoDB";
 		if($conn->query($sql_create) == TRUE) {
 	//	echo "User table created";
 		}

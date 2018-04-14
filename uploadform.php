@@ -66,12 +66,16 @@ $bool = 1;
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="./showfiles.php">My files</a>
+                        <a href="./showfiles.php">My Files</a>
                     </li>
 
                     <li>
                         <a href="./logout.php">Sign Out</a>
                     </li>
+ 					<li>
+                        <a href="./removeaccount.php">Delete my account</a>
+                    </li>
+
                </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -87,6 +91,8 @@ $bool = 1;
 
 <div class="panel panel-default" align=center>
 <form action="upload.php" method="post" enctype="multipart/form-data">
+	Title:<input type="text" name="title">
+	<br><br>
     <input type="file" name="fileToUpload" id="fileToUpload" style="display:inline;width:500px;height:70px;background-color:blue;color:white">
     <input type="submit" value="UPLOAD" name="submit" class="btn btn-default" style="width:500px;height:70px;background-color:blue;color:white">
 </form>

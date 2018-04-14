@@ -76,6 +76,7 @@ $bool = 1;
   <table class="data-table" id="data">
         <thead>
           <tr>
+            <th style="padding:0 25px 0 25px;">Title</th>
             <th style="padding:0 25px 0 25px;">File name</th>
             <th style="padding:0 25px 0 25px;">File size</th>
 	    <th style="padding:0 25px 0 25px;">Download</th>
@@ -107,6 +108,7 @@ $bool = 1;
 	$downloadfile = $row['filename'];
 		?>
         <tr>
+        <td style="padding:0 25px 0 25px;"><?php echo $row['title'] ?></td>
         <td style="padding:0 25px 0 25px;"><?php echo $row['filename'] ?></td>
         <td style="padding:0 25px 0 25px;"><?php echo $row['filesize'] ?></td>
 	<td style="padding:0 25px 0 25px;"><a href="./uploads/<?php echo $row['filename']; ?>" download>Download</a></td>

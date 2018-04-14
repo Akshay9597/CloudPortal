@@ -31,11 +31,11 @@
     			}
     		}
     		if($flag == 0) {
-    			echo "<script type=\"text/javascript\">window.alert('New User? SignUp for free!!');window.location.href = 'index.html';</script>"; 
+    			echo "<script type=\"text/javascript\">window.alert('New User? SignUp for free!!');window.location.href = './signup.html';</script>"; 
    			exit;
    		}
 	} else {
-		echo "<script type=\"text/javascript\">window.alert('New User? SignUp for freeeeee!!');window.location.href = 'index.html';</script>"; 
+		echo "<script type=\"text/javascript\">window.alert('New User? SignUp for freeeeee!!');window.location.href = 'signup.html';</script>"; 
    		exit;
    	}
 		

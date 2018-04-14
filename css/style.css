@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
 
 body {
-  background-image:url('https://github.com/Akshay9597/CloudPortal/blob/master/backgroundimg.jpeg');
+	background: url(../backgroundimg.jpeg) repeat;
+	min-height: 100%;
   background-repeat:no-repeat;
   background-position:center center;
   -webkit-background-size: cover;
