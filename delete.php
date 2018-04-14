@@ -26,25 +26,14 @@
 	        if (!$display_query) {
 	               die ('SQL Error: ' . mysqli_error($conn));
 	        }
+
+		$delpublic= "DELETE FROM public WHERE filename= '$filename'";
+		$display_query = mysqli_query($conn, $delpublic);
+	        if (!$display_query) {
+	               die ('SQL Error: ' . mysqli_error($conn));
+	        }
 	//	echo "<meta http-equiv='refresh' content='0;url=showfiles.php'>";
 	}
 	header("Location:showfiles.php");
-/*
-	$delete = $_POST['delete'];
 
-	foreach($delete as $id = $value)
-	{
-
-	    mysql_query("DELETE FROM table_name WHERE id = $id");
-	}
-
-*/
-/*
-	$del = "DELETE FROM ".$user." WHERE filename = ".$filename;
-	echo $del;
-	$del_query = mysqli_query($conn, $del);
-        if (!$del_query) {
-               die ('SQL Error: ' . mysqli_error($conn));
-        }
-	echo $del;*/
 ?>

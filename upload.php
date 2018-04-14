@@ -10,8 +10,11 @@
 		//header("Location:/cloudfiles/uploadform.php");
 		$flag = 1;
 	}
+	if(isset($_POST["publicval"])){
+		$flag = 2;
+	}
 	echo $flag;
-	if($flag == 0) {
+	if($flag == 0 || $flag == 2) {
 		echo "file:".$onlyfilename."<br>";
 		echo "<br>";
 		//moving files to main server
@@ -51,6 +54,15 @@
 		}
 		else{
 			echo "invalid query";
+		}
+		if($flag == 2) {
+			$sqlpublic = "INSERT INTO public (user, filename, filesize, title) VALUES ('".$user."', '".$onlyfilename."','".$filesize."','".$title."')";
+		if($conn->query($sqlpublic) === TRUE) {
+			echo "successful entry of files";
+		}
+		else{
+			echo "invalid query";
+		}
 		}
 		$conn->close();
 

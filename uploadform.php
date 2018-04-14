@@ -30,6 +30,85 @@ $bool = 1;
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="center.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+<style>
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+</style>
 </head>
 
 
@@ -42,7 +121,6 @@ $bool = 1;
 		   header("Location:/cloudfiles/index.html");
 	}
 	$user = $_SESSION["user"];
-	echo 'Welcome '.$user;
 	
 ?>
 
@@ -57,7 +135,7 @@ $bool = 1;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../home.php">
+                <a class="navbar-brand" href="./uploadform.php">
                 	<span class="glyphicon glyphicon-fire"></span>
                 Cloud Portal
                 </a>
@@ -65,27 +143,40 @@ $bool = 1;
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
+			<li class="active">
+			<a href="./uploadform.php"><?php echo "Welcome ".$user;?></a>
+			</li>
                     <li class="active">
                         <a href="./showfiles.php">My Files</a>
                     </li>
 
-                    <li>
+                    <li class="active">
                         <a href="./logout.php">Sign Out</a>
                     </li>
- 					<li>
+ 			<li class="active">
                         <a href="./removeaccount.php">Delete my account</a>
                     </li>
-
+			<div class="topnav">
                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
+
+<!-- search bar -->
+<div class="search-container" align="right">
+    <form action="./searchfile.php" method="POST">
+      <input type="text" placeholder="Search.." name="searchfile">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
     </nav>
+ 
 
 <div class="jumbotron feature">
 		<div class="container">
-			<h1>Upload Files...</h1>
+			<h1>Upload Files</h1>
 		</div>
 </div>
 
@@ -93,57 +184,12 @@ $bool = 1;
 <form action="upload.php" method="post" enctype="multipart/form-data">
 	Title:<input type="text" name="title">
 	<br><br>
-    <input type="file" name="fileToUpload" id="fileToUpload" style="display:inline;width:500px;height:70px;background-color:blue;color:white">
+    Select to make file public<input type="radio" name="publicval" value="Yes">
+    <input type="file" name="fileToUpload" id="fileToUpload" style="display:inline;width:500px;height:67.5px;background-color:blue;color:white">
     <input type="submit" value="UPLOAD" name="submit" class="btn btn-default" style="width:500px;height:70px;background-color:blue;color:white">
 </form>
 </div>
-<!--
-  <table class="data-table" id="data">
-        <thead>
-          <tr>
-            <th style="padding:0 25px 0 25px;">File name</th>
-            <th style="padding:0 25px 0 25px;">File size</th>
-	    <th style="padding:0 25px 0 25px;">Download</th>
-	    <th style="padding:0 25px 0 25px;">Delete</th>
-          </tr>
-        </thead>
-        <div class="contain">
-        <tbody>
-          <?php
-	include_once '../passdb.php';
-	$dbname = "cloudportalDB";
-	
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
-  if($bool == 1)
-  {
-        $sql = "SELECT * FROM ".$user;
-        $display_query = mysqli_query($conn, $sql);
-        if (!$display_query) {
-               die ('SQL Error: ' . mysqli_error($conn));
-        }
-        if(mysqli_num_rows($display_query) == 0){
-          echo "NO MATCHING DATA";
-        }
-  while ($row = mysqli_fetch_array($display_query))
-            {
-	$downloadfile = $row['filename'];
-		?>
-        <tr>
-        <td style="padding:0 25px 0 25px;"><?php echo $row['filename'] ?></td>
-        <td style="padding:0 25px 0 25px;"><?php echo $row['filesize'] ?></td>
-	<td style="padding:0 25px 0 25px;"><a href="./uploads/<?php echo $row['filename']; ?>" download>Download</a></td>
-	<td style="padding:0 25px 0 25px;"><a href="delete.php?del=<?php echo $downloadfile; ?>">Delete</a></td>
-        </tr>
-<?php
-            }
-          }?>
-        </tbody>
-      </div>
-       </table>
--->
+
    <!-- jQuery -->
     <script src="../WebApp/js/jquery-1.11.3.min.js"></script>
 

@@ -28,85 +28,6 @@ $bool = 1;
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="center.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<style>
-<style>
-* {box-sizing: border-box;}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #e9e9e9;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #2196F3;
-  color: white;
-}
-
-.topnav .search-container {
-  float: right;
-}
-
-.topnav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-}
-
-.topnav .search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-.topnav .search-container button:hover {
-  background: #ccc;
-}
-
-@media screen and (max-width: 600px) {
-  .topnav .search-container {
-    float: none;
-  }
-  .topnav a, .topnav input[type=text], .topnav .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  .topnav input[type=text] {
-    border: 1px solid #ccc;  
-  }
-}
-</style>
 </head>
 
 
@@ -125,7 +46,7 @@ body {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="./showfiles.php">
+                <a class="navbar-brand" href="./uploadform.php">
                 	<span class="glyphicon glyphicon-fire"></span>
                 Cloud Portal
                 </a>
@@ -136,6 +57,9 @@ body {
                     <li class="active">
                         <a href="./uploadform.php">Upload files</a>
                     </li>
+		 <li class="active">
+                        <a href="./showfiles.php">My Files</a>
+                    </li>
 
                     <li class="active">
                         <a href="./logout.php">Sign Out</a>
@@ -145,19 +69,11 @@ body {
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-<!-- search bar -->
-<div class="search-container" align="right">
-    <form action="./searchfile.php" method="POST">
-      <input type="text" placeholder="Search.." name="searchfile">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
-</div>
     </nav>
 
 <div class="jumbotron feature">
 		<div class="container">
-			<h1>List of Files</h1>
+			<h1>File Searches</h1>
 		</div>
 	</div>
   <table class="data-table" id="data">
@@ -182,7 +98,8 @@ body {
 	}
   if($bool == 1)
   {
-        $sql = "SELECT * FROM ".$user;
+	$search = $_POST["searchfile"];
+        $sql = "SELECT * FROM $user WHERE filename LIKE '%$search%' OR title LIKE '%$search%'";
         $display_query = mysqli_query($conn, $sql);
         if (!$display_query) {
                die ('SQL Error: ' . mysqli_error($conn));
@@ -192,7 +109,7 @@ body {
         }
   while ($row = mysqli_fetch_array($display_query))
             {
-	$downloadfile = $row['filename'];
+	$downloadfile = $row['search'];
 		?>
         <tr>
         <td style="padding:0 25px 0 25px;"><?php echo $row['title'] ?></td>
@@ -226,7 +143,7 @@ body {
           <?php
   if($bool == 1)
   {
-        $sql = "SELECT * FROM public";
+        $sql = "SELECT * FROM public WHERE filename LIKE '%$search%' OR title LIKE '%$search%'";
         $display_query = mysqli_query($conn, $sql);
         if (!$display_query) {
                die ('SQL Error: ' . mysqli_error($conn));
