@@ -3,6 +3,10 @@
 	if(!isset($_SESSION['user'])){
 		   header("Location:/cloudfiles/index.html");
 	}
+	$onlyfilename = $_FILES["fileToUpload"]["name"];
+	if(!isset($onlyfilename)) {
+		   header("Location:/cloudfiles/uploadform.html");
+	}
 	echo $_SESSION['user'];
 	$onlyfilename = $_FILES["fileToUpload"]["name"];
 	$target_dir = "./";

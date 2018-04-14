@@ -17,7 +17,7 @@
 	if( isset($_GET['del']) )
 	{
 		$filename = $_GET['del'];
-		$sql= "DELETE FROM ".$user." WHERE filename= ".$filename;
+		$sql= "DELETE FROM $user WHERE filename= '$filename'";
 		echo $sql;
 		echo "<br>";
 	//	$res= mysql_query($sql) or die("Failed".mysql_error());

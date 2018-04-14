@@ -1,10 +1,10 @@
 import time
 import os
 import socket
-PORT = [8080]
-HOST = ['192.168.1.10']
-clients = 1
-print HOST[0]
+PORT = [8080,9090]
+HOST = '192.168.1.10'
+clients = 2
+
 
 
 
@@ -32,7 +32,7 @@ while 1 :
 			soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			soc.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-			soc.bind((HOST[i],PORT[i]))
+			soc.bind((HOST,PORT[i]))
 			soc.listen(1)
 			conn, addr = soc.accept()
 
@@ -67,7 +67,7 @@ while 1 :
 
 
         
-        soc.bind((HOST[client_id],PORT[client_id]))
+        soc.bind((HOST,PORT[client_id]))
         soc.listen(1)
         conn, addr = soc.accept()
         

@@ -83,13 +83,14 @@ $bool = 1;
 		<div class="container">
 			<h1>Upload Files..</h1>
 		</div>
+</div>
 
-
+<div class="panel panel-default">
 <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="file" name="fileToUpload" id="fileToUpload" style="display:inline;width:500px;height:70px">
+    <input type="submit" value="Upload Image" name="submit" class="btn btn-default" style="width:500px;height:70px;color=gray">
 </form>
-
+</div>
 <!--
   <table class="data-table" id="data">
         <thead>
