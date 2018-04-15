@@ -16,10 +16,10 @@ $bool = 1;
     <title>List Files</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../WebApp/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./WebApp/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
-    <link href="../WebApp/css/custom.css" rel="stylesheet">
+    <link href="./WebApp/css/custom.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -252,16 +252,16 @@ body {
        </table>
 
    <!-- jQuery -->
-    <script src="../WebApp/js/jquery-1.11.3.min.js"></script>
+    <script src="./WebApp/js/jquery-1.11.3.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../WebApp/js/bootstrap.min.js"></script>
+    <script src="./WebApp/js/bootstrap.min.js"></script>
 
 	<!-- IE10 viewport bug workaround -->
-	<script src="../WebApp/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="./WebApp/js/ie10-viewport-bug-workaround.js"></script>
 
 	<!-- Placeholder Images -->
-	<script src="../WebApp/js/holder.min.js"></script>
+	<script src="./WebApp/js/holder.min.js"></script>
 
 </body>
 

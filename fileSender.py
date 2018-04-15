@@ -2,7 +2,7 @@ import time
 import os
 import socket
 PORT = [8080,9090]
-HOST = '192.168.1.10'
+HOST = '192.168.43.250'
 clients = 2
 
 

@@ -1,0 +1,51 @@
+html{
+  background-color: #dcdcdc;
+}
+body{
+  display: block;
+  max-width: 900px;
+  margin:200px auto ;
+  border: 5px solid black;
+  border-radius: 15px;
+}
+header{
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+p{
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  font-size: 2em;
+  line-height: 2em;
+}
+h1{
+  font-size: 5em;
+  text-shadow: 5px 5px #888888;
+}
+div{
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+main{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+input, button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 25px;
+  width: 200px;
+  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  border-radius: 7px;
+}
+.submit{
+  border-radius: 10px;
+  background-color: #aaaaaa;
+  height: 50px;
+  box-shadow: 2px 2px 2px 2px #888888;
+  font-weight: bold;
+  margin-top: 50px;
+}
